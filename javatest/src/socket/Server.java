@@ -3,6 +3,8 @@ package socket;
 import java.io.*;
 import java.net.*;
 
+import serialized.Person;
+
 public  class Server{
 	private int port = 8000;
 	private ServerSocket serverSocket;
@@ -17,6 +19,15 @@ public  class Server{
 			try{
 				socket = serverSocket.accept();
 				System.out.println("new connection accepted"+socket.getInetAddress()+":"+socket.getPort());
+				InputStream in =  socket.getInputStream();
+				try {
+					ObjectInputStream ois = new ObjectInputStream(in);
+					Person person = (Person) ois.readObject();
+					System.out.println(person);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}catch(IOException e){
 				e.printStackTrace();
 			}finally{

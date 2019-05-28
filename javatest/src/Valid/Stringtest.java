@@ -1,5 +1,7 @@
 package Valid;
 
+import java.util.ArrayList;
+
 /**
  * @author admin
  *
@@ -67,6 +69,9 @@ public class Stringtest {
 		StringBuilder sb = new StringBuilder("chen");
 		
 		System.out.println(sbf.equals(sb));
+		ArrayList<String> strList = new ArrayList<String>();
+		strList.add(str);
+		System.out.println(strList.get(0));
 	}
 	
 }

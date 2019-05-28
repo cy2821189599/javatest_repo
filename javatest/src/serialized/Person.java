@@ -29,6 +29,11 @@ public class Person implements Serializable{
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "name:"+name+"\tage:"+age+"\tsex:"+sex;
+	}
 	
 	
 }

@@ -34,7 +34,7 @@ public class ThreadPool extends ThreadGroup{
 	protected synchronized Runnable getTask() throws InterruptedException {
 		while(workqueue.size() == 0) {
 			if(isClosed) return null;
-			wait();
+			wait();	//进入阻塞状态，等待唤醒
 		}
 		return workqueue.removeFirst();
 	}
